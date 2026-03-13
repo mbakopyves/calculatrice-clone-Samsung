@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <title>Calculatrice clone Samsung A34</title>
+  </head>
+  <body>
+   <div id="angle" class="absolute z-10 top-15 left-10 font-bold text-black/70 w-fit h-fit">deg</div>
+   <div class="w-screen overflow-hidden h-screen bg-black/50 px-4 absolute z-0">
+      <div
+        id="grille_resultat"
+        class="flex flex-col w-full h-1/4 mt-1 rounded-4xl bg-white/80 _absolute _z-0"
+      >
+        <div
+          id="operation"
+          class="w-full h-1/2 pt-12 relative flex justify-end items-end"
+        >
+          <span id="display" class="text-2xl font-bold text-blue/20"></span>
+          <span
+            id="cursor"
+            class="inline-block w-0.5 h-full bg-black animate-blink"
+          ></span>
+        </div>
+        <div
+          id="resultat"
+          class="flex justify-end items-center w-full h-1/2 font-normal"
+        ></div>
+      </div>
+      <div class="flex flex-row justify-between w-full h-1/12">
+        <div id="option" class="flex flex-row items-center gap-6 md:gap-20 pl-0">
+          <a
+            id="history-toggle"
+            href="./historique.html"
+            class="block md:hidden material-symbols-outlined function"
+            >history_toggle_off
+          </a>
+          <a
+            id="straighten"
+            href="#"
+            class="block md:hidden material-symbols-outlined function"
+            >straighten</a
+          >
+          <a
+            id="calculate_multi"
+            href="#"
+            class="block md:hidden material-symbols-outlined function"
+            >calculate</a
+          >
+        </div>
+        <div class="flex flex-row items-center">
+          <a
+            id="supprimer"
+            href="#"
+            class="material-symbols-outlined delete pr-3 md:pr-10"
+            >backspace</a
+          >
+        </div>
+      </div>
+      <div
+        id="operateur"
+        class="flex flex-row w-full h-4/6 pt-6 justify-between text-4xl"
+      >
+        <div class="hidden md:flex md:flex-col md:justify-between md:function">
+          <div id="suivant" class="btn-calc function">
+            <span>&larr;</span>
+          </div>
+          <div id="sinus" class="btn-calc function">
+            <span>sin</span>
+          </div>
+          <div id="ln" class="btn-calc function">
+            <span>ln</span>
+          </div>
+          <div id="exponentielle" class="btn-calc function">
+            <span class="w-screen">e<sup>x</sup></span>
+          </div>
+          <div id="valeur_absolue" class="btn-calc function">
+            <span>|x|</span>
+          </div>
+        </div>
+        <div class="hidden md:flex md:flex-col md:justify-between md:function">
+          <div id="radians" class="btn-calc function">
+            <span>°</span>
+          </div>
+          <div id="cosinus" class="btn-calc function">
+            <span>cos</span>
+          </div>
+          <div id="log" class="btn-calc function">
+            <span>log</span>
+          </div>
+          <div id="carre" class="btn-calc function">
+            <span>x<sup>2</sup></span>
+          </div>
+          <div id="pi" class="btn-calc function">
+            <span>&pi;</span>
+          </div>
+        </div>
+        <div class="hidden md:flex md:flex-col md:justify-between md:function">
+          <div id="racine_carree" class="btn-calc function">
+            <span>&#8730;</span>
+          </div>
+          <div id="tangente" class="btn-calc function">
+            <span>tan</span>
+          </div>
+          <div id="puissance_x" class="btn-calc function">
+            <span>x<sup>y</sup></span>
+          </div>
+          <div id="inverse" class="btn-calc function">
+            <span>1/x</span>
+          </div>
+          <div id="nombre_euler" class="btn-calc function">
+            <span>e</span>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between">
+          <div class="btn-calc" id="effacer">
+            <span class="text-red-600">C</span>
+          </div>
+          <div id="sept" class="btn-calc operation">
+            <span>7</span>
+          </div>
+          <div id="quatre" class="btn-calc operation">
+            <span>4</span>
+          </div>
+          <div id="un" class="btn-calc operation">
+            <span>1</span>
+          </div>
+          <div id="moin_un" class="btn-calc operation">
+            <span>+/-</span>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between">
+          <div id="parenthese" class="btn-calc">
+            <span class="operateur">()</span>
+          </div>
+          <div id="huit" class="btn-calc operation">
+            <span>8</span>
+          </div>
+          <div id="cinq" class="btn-calc operation">
+            <span>5</span>
+          </div>
+          <div id="deux" class="btn-calc operation">
+            <span>2</span>
+          </div>
+          <div id="zero"class="btn-calc operation">
+            <span>0</span>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between">
+          <div id="modulo" class="btn-calc operateur">
+            <span>%</span>
+          </div>
+          <div id="neuf" class="btn-calc operation">
+            <span>9</span>
+          </div>
+          <div id="six" class="btn-calc operation">
+            <span>6</span>
+          </div>
+          <div id="trois" class="btn-calc operation">
+            <span>3</span>
+          </div>
+          <div id="virgule" class="btn-calc operation">
+            <span>,</span>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between">
+          <div id="diviser" class="btn-calc operateur">
+            <span>&divide;</span>
+          </div>
+          <div id="fois" class="btn-calc operateur">
+            <span>&times;</span>
+          </div>
+          <div id="moins" class="btn-calc operateur">
+            <span>&minus;</span>
+          </div>
+          <div id="plus" class="btn-calc operateur">
+            <span>&plus;</span>
+          </div>
+          <div id="egal" class="btn-calc operateur" onclick="">
+            <span>&equals;</span>
+          </div>
+        </div>
+      </div>
+      <!-- Panneau d'historique -->
+      <div
+        id="history-panel"
+        style="
+          display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 100%;
+          max-width: 400px;
+          height: 100%;
+          background: white;
+          z-index: 1000;
+          overflow-y: auto;
+          box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+        "
+      >
+        <div
+          style="
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+          "
+        >
+          <h2 style="margin: 0; font-size: 18px">Historique</h2>
+          <button
+            onclick="viderHistorique()"
+            style="
+              background: #ee6b6b;
+              color: white;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 3px;
+              cursor: pointer;
+            "
+          >
+            Vider
+          </button>
+        </div>
+        <div id="history-container" style="padding: 10px"></div>
+      </div>
+      <script src="index.js"></script>
+   </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+    --color-bleu: oklch(80.9% 0.105 251.813);
+    --color-orange: oklch(70.5% 0.213 47.604);
+    --color-gris: oklch(50.0% 0.000 0.000);
+    --color-function: white;
+    --btn-size: 64px;
+    --btn-padding: 40px;
+    --btn-border: 2px solid var(--color-bleu);
+}
+
+.operation {
+    color: var(--color-bleu);
+}
+
+.operateur {
+    color: var(--color-orange);
+}
+
+.delete {
+    color: var(--color-gris);
+}
+
+.function {
+    color: var(--color-function);
+}
+
+.btn-calc {
+    @media(min-width: 400px) {
+        width: fill-available;
+    }
+    @media(max-width: 400px) {
+        width: var(--btn-size);
+    }
+    height: var(--btn-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--btn-padding);
+    border-radius: 9999px;
+    box-sizing: border-box;
+    background-color: var(--color-gris);
+    transition: background-color 0.1s ease-in-out 0.1s;
+}
+
+.btn-calc:hover {
+    background-color: var(--color-bleu);
+    color: white;
+    cursor: pointer;
+}
+
+
+.btn-calc>span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+.animate-blink {
+    animation: blink 1s infinite;
+}
